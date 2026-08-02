@@ -9,6 +9,7 @@
   "author": "coresyt <corejsyt2011@gmail.com> (https://coresyt.vercel.app/)",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "6.0.0",
     "cors": "2.8.6",
     "dotenv": "17.4.2",
     "express": "5.2.1",
@@ -19,6 +20,7 @@
     "ws": "8.21.1"
   },
   "devDependencies": {
+    "@types/bcrypt": "6.0.0",
     "@types/cors": "2.8.19",
     "@types/express": "5.0.6",
     "@types/morgan": "1.9.10",
