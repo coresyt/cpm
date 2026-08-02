@@ -1,7 +1,7 @@
 import path from 'path'
-import 'reflect-metadata'
 import { DataSource } from 'typeorm'
 import { DB_FILE } from './config/env'
+import { User } from './entities/user.entity'
 
 const AppDataSource = new DataSource({
   type: 'sqljs',
@@ -9,6 +9,7 @@ const AppDataSource = new DataSource({
   location: path.join(__dirname, `../${DB_FILE}`),
   migrations: [],
   subscribers: [],
+  entities: [User],
   synchronize: true,
   logging: false
 })
