@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
 import { createServer } from 'http'
+import authRouter from './routes/auth.route'
 
 const app = express()
 app.use(express.json())
@@ -12,8 +13,6 @@ app.disable('x-powered-by')
 
 const server = createServer(app)
 
-app.get('/', (req, res) => {
-  res.send('Hello, World!')
-})
+app.use('/api/auth', authRouter)
 
 export default server
