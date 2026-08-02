@@ -2,9 +2,12 @@
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src",
-    "target": "ESNext",
-    "module": "NodeNext",
+    "lib": ["es5", "es6"],
+    "target": "es6",
+    "module": "commonjs",
     "skipLibCheck": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
   },
   "exclude": ["node_modules"],
 }

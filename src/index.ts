@@ -1,3 +1,23 @@
 import server from './app'
+import AppDataSource from './database'
+import 'reflect-metadata'
 
-server.listen(3000, () => console.log('Server in port 3000'))
+function exec() {
+  server.listen(3000, async () => {
+    try {
+      await AppDataSource.initialize()
+      console.log('Database: Successfully initialized database')
+    } catch (error) {
+      console.log(error)
+      console.log('Database: Error in initialized database')
+      exec()
+    }
+
+    console.log('Server:  Listen in port 3000')
+    console.log('Server:  HTTP      http://localhost:3000')
+    console.log('Server:  WebSocket ws://localhost:3000')
+  })
+}
+
+console.clear()
+exec()
