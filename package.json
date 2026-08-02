@@ -1,0 +1,28 @@
+{
+  "name": "esp32",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "coresyt <corejsyt2011@gmail.com> (https://coresyt.vercel.app/)",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "2.8.6",
+    "express": "5.2.1",
+    "morgan": "1.11.0",
+    "ws": "8.21.1"
+  },
+  "devDependencies": {
+    "@types/cors": "2.8.19",
+    "@types/express": "5.0.6",
+    "@types/morgan": "1.9.10",
+    "@types/node": "26.1.2",
+    "@types/ws": "8.18.1",
+    "prettier": "3.9.6",
+    "tsx": "4.23.1",
+    "typescript": "7.0.2"
+  },
+  "packageManager": "pnpm@11.19.0"
+}
