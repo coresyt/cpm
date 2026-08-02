@@ -150,3 +150,6 @@ dist
 .vercel
 
 db
+
+private.pem
+public.pem
