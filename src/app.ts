@@ -3,6 +3,8 @@ import cors from 'cors'
 import morgan from 'morgan'
 import { createServer } from 'http'
 import authRouter from './routes/auth.route'
+import usersRouter from './routes/users.route'
+import { authMiddleware } from './middlewares/auth.middleware'
 
 const app = express()
 app.use(express.json())
@@ -14,5 +16,6 @@ app.disable('x-powered-by')
 const server = createServer(app)
 
 app.use('/api/auth', authRouter)
+app.use('/api/user', authMiddleware, usersRouter)
 
 export default server
