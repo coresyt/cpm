@@ -1,9 +1,10 @@
 import server from './app'
+import { PORT } from './config/env'
 import AppDataSource from './database'
 import 'reflect-metadata'
 
 function exec() {
-  server.listen(3000, async () => {
+  server.listen(PORT, async () => {
     try {
       await AppDataSource.initialize()
       console.log('Database: Successfully initialized database')
