@@ -2,6 +2,7 @@ import path from 'path'
 import { DataSource } from 'typeorm'
 import { DB_FILE } from './config/env'
 import { User } from './entities/user.entity'
+import { Thing } from './entities/thing.entity'
 
 const AppDataSource = new DataSource({
   type: 'sqljs',
@@ -9,7 +10,7 @@ const AppDataSource = new DataSource({
   location: path.join(__dirname, `../${DB_FILE}`),
   migrations: [],
   subscribers: [],
-  entities: [User],
+  entities: [User, Thing],
   synchronize: true,
   logging: false
 })

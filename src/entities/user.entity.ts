@@ -2,7 +2,8 @@ import {
   Entity,
   Column,
   CreateDateColumn,
-  PrimaryGeneratedColumn
+  PrimaryGeneratedColumn,
+  OneToMany
 } from 'typeorm'
 import { IsEmail } from 'class-validator'
 
