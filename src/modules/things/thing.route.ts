@@ -5,8 +5,8 @@ import {
   listThings,
   myListThings,
   updateThing
-} from '../controllers/thing.controller'
-import { identityVerificationMiddleware } from '../middlewares/identity.middleware'
+} from './thing.controller'
+import { identityVerificationMiddleware } from '../../shared/middlewares/identity.middleware'
 
 const thingsRouter = Router()
 

@@ -1,7 +1,7 @@
 import { RequestHandler } from 'express'
-import { decodedToken } from '../services/jwt.service'
-import AppDataSource from '../database'
-import { User, UserRole } from '../entities/user.entity'
+import { decodedToken } from '../utils/jwt.util'
+import AppDataSource from '../database/database'
+import { User, UserRole } from '../../modules/users/user.entity'
 
 declare global {
   namespace Express {

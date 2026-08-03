@@ -2,10 +2,10 @@ import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
 import { createServer } from 'http'
-import authRouter from './routes/auth.route'
-import usersRouter from './routes/users.route'
-import { authMiddleware } from './middlewares/auth.middleware'
-import thingsRouter from './routes/thing.route'
+import authRouter from './modules/auth/auth.route'
+import usersRouter from './modules/users/users.route'
+import thingsRouter from './modules/things/thing.route'
+import { authMiddleware } from './shared/middlewares/auth.middleware'
 
 const app = express()
 app.use(express.json())

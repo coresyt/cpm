@@ -1,5 +1,5 @@
-import AppDataSource from '../database'
-import { User, UserRole } from '../entities/user.entity'
+import AppDataSource from '../../shared/database/database'
+import { User, UserRole } from './user.entity'
 import { RequestHandler } from 'express'
 
 export const listUsers: RequestHandler = async (req, res) => {

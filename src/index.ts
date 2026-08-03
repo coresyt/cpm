@@ -1,6 +1,6 @@
 import server from './app'
-import { PORT } from './config/env'
-import AppDataSource from './database'
+import { PORT } from './shared/config/env'
+import AppDataSource from './shared/database/database'
 import 'reflect-metadata'
 
 function exec() {

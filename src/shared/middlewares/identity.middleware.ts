@@ -1,7 +1,7 @@
 import { RequestHandler } from 'express'
-import AppDataSource from '../database'
-import { User } from '../entities/user.entity'
-import { comparePassword } from '../services/bcrypt.service'
+import AppDataSource from '../database/database'
+import { User } from '../../modules/users/user.entity'
+import { comparePassword } from '../utils/hash.util'
 
 declare global {
   namespace Express {

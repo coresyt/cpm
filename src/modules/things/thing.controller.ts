@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express'
-import AppDataSource from '../database'
-import { Thing } from '../entities/thing.entity'
+import AppDataSource from '../../shared/database/database'
+import { Thing } from './thing.entity'
 
 export const listThings: RequestHandler = async (req, res) => {
   try {

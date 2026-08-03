@@ -1,8 +1,8 @@
 import { RequestHandler } from 'express'
-import AppDataSource from '../database'
-import { User } from '../entities/user.entity'
-import { comparePassword, hashPassword } from '../services/bcrypt.service'
-import { createToken, decodedToken } from '../services/jwt.service'
+import AppDataSource from '../../shared/database/database'
+import { User } from '../users/user.entity'
+import { comparePassword, hashPassword } from '../../shared/utils/hash.util'
+import { createToken, decodedToken } from '../../shared/utils/jwt.util'
 
 export const signUp: RequestHandler = async (req, res) => {
   try {
