@@ -134,6 +134,63 @@ export const updateBoard: RequestHandler = async (req, res) => {
   }
 }
 
+export const addThingsToBoard: RequestHandler = async (req, res) => {
+  try {
+    if (typeof req.user !== 'object' || req.verifyIdentity !== true) {
+      res.status(404).json({
+        status: 404,
+        message: 'Not found!'
+      })
+      return
+    }
+
+    if (
+      req.body.thingsIds === undefined ||
+      !Array.isArray(req.body.thingsIds) ||
+      req.body.thingsIds.length === 0
+    ) {
+      return res.status(400).json({
+        status: 400,
+        message: "The thingsIds weren't added!!"
+      })
+    }
+
+    const boardById = await AppDataSource.getRepository(Board)
+      .createQueryBuilder()
+      .where('board.userId = :userId and board.id = :id', {
+        userId: req.user.id,
+        id: req.params.id
+      })
+      .getOne()
+
+    if (boardById === null) {
+      return res.status(404).json({
+        status: 404,
+        message: 'Board not found!'
+      })
+    }
+
+    console.log(boardById.thingsIds)
+    console.log(req.body.thingsIds)
+
+    await AppDataSource.createQueryBuilder()
+      .update(Board)
+      .set({ thingsIds: [...boardById.thingsIds, ...req.body.thingsIds] })
+      .where('board.id = :id and board.userId = :userId', {
+        id: req.params.id,
+        userId: req.user.id
+      })
+      .execute()
+
+    res
+      .status(200)
+      .json({ status: 200, message: 'Things added to board successfully' })
+  } catch (err) {
+    console.log(err)
+    res.status(500).json({ status: 500, message: 'Internal server error' })
+  }
+}
+
 export const deleteBoard: RequestHandler = async (req, res) => {
   try {
     if (typeof req.user !== 'object' || req.verifyIdentity !== true) {
