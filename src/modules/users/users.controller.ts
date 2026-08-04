@@ -27,6 +27,36 @@ export const listUsers: RequestHandler = async (req, res) => {
   }
 }
 
+export const getUserAccount: RequestHandler = async (req, res) => {
+  try {
+    if (req.user === undefined)
+      return res.status(404).json({
+        status: 404,
+        message: 'Not found!'
+      })
+
+    console.log(req.user)
+
+    const user = await AppDataSource.getRepository(User)
+      .createQueryBuilder()
+      .where('user.id = :id', { id: req.user.id })
+      .getOne()
+
+    const account = {
+      id: user?.id,
+      email: user?.email,
+      name: user?.name,
+      role: user?.role,
+      createdDate: user?.createdDate
+    } as User
+
+    res.json({ status: 200, account })
+  } catch (err) {
+    console.log(err)
+    res.status(500).json()
+  }
+}
+
 export const setRoleUser: RequestHandler = async (req, res) => {
   try {
     if (
