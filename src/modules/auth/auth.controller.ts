@@ -95,6 +95,65 @@ export const signIn: RequestHandler = async (req, res) => {
   }
 }
 
+export const changePassword: RequestHandler = async (req, res) => {
+  try {
+    const { password, newPassword } = req.body
+
+    if (req.user === undefined) {
+      return res.status(404).json({
+        status: 404,
+        message: 'Not found!'
+      })
+    }
+
+    const user = await AppDataSource.getRepository(User)
+      .createQueryBuilder('user')
+      .where('user.id = :id', { id: req.user.id })
+      .getOne()
+
+    if (user === null)
+      return res.status(404).json({
+        status: 404,
+        message: 'User is not exist or is incorrect password'
+      })
+
+    if (password.length < 0 || typeof password !== 'string') {
+      return res
+        .status(400)
+        .json({ status: 400, message: 'Password is not valid or is void' })
+    }
+
+    const isCorrectPassword = await comparePassword(user.password, password)
+
+    if (!isCorrectPassword)
+      return res.status(404).json({
+        status: 404,
+        message: 'User is not exist or is incorrect password'
+      })
+
+    if (newPassword.length < 0 || typeof newPassword !== 'string') {
+      return res
+        .status(400)
+        .json({ status: 400, message: 'New password is not valid or is void' })
+    }
+
+    const passwordHashed = await hashPassword(newPassword)
+
+    await AppDataSource.createQueryBuilder()
+      .update(User)
+      .set({ password: passwordHashed })
+      .where('user.id = :id', { id: req.user.id })
+      .execute()
+
+    res
+      .status(201)
+      .json({ status: 201, message: 'Password changed succesfully!' })
+  } catch (err) {
+    console.log(err)
+    res.status(500).json()
+  }
+}
+
 export const signOut: RequestHandler = async (req, res) => {
   try {
     const { email, password } = req.body as User
