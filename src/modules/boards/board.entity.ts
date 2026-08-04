@@ -16,7 +16,7 @@ export class Board {
   @Column('uuid')
   userId: string
 
-  @Column({ type: 'blob', default: [] })
+  @Column({ type: 'simple-array', default: [] })
   thingsIds: string[]
 
   @CreateDateColumn()

@@ -25,7 +25,7 @@ export class Thing {
   })
   type: ThingType
 
-  @Column('blob')
+  @Column({ type: 'simple-array', default: [] })
   value: any[]
 
   @Column('uuid')
