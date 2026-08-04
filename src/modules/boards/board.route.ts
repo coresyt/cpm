@@ -6,6 +6,7 @@ import {
   deleteBoard,
   listBoards,
   myListBoards,
+  setIp,
   updateBoard
 } from './board.controller'
 
@@ -24,6 +25,8 @@ boardsRouter.post(
   identityVerificationMiddleware,
   addThingsToBoard
 )
+
+boardsRouter.post('/set-ip/:id', identityVerificationMiddleware, setIp)
 
 boardsRouter.delete('/delete/:id', identityVerificationMiddleware, deleteBoard)
 
