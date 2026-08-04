@@ -3,6 +3,8 @@ import { identityVerificationMiddleware } from '../../shared/middlewares/identit
 import {
   addThingsToBoard,
   createBoard,
+  createToken,
+  createTokenBoard,
   deleteBoard,
   listBoards,
   myListBoards,
@@ -17,6 +19,12 @@ boardsRouter.post('/list', identityVerificationMiddleware, listBoards)
 boardsRouter.get('/my-list', myListBoards)
 
 boardsRouter.post('/create', identityVerificationMiddleware, createBoard)
+
+boardsRouter.post(
+  '/create-token/:id',
+  identityVerificationMiddleware,
+  createTokenBoard
+)
 
 boardsRouter.post('/update/:id', identityVerificationMiddleware, updateBoard)
 
