@@ -1,3 +1,4 @@
+import { IsIP } from 'class-validator'
 import {
   Column,
   CreateDateColumn,
@@ -15,6 +16,10 @@ export class Board {
 
   @Column('uuid')
   userId: string
+
+  @Column({ type: 'varchar', default: '' })
+  @IsIP('4')
+  origin: string
 
   @Column({ type: 'simple-array', default: [] })
   thingsIds: string[]
