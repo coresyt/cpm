@@ -6,6 +6,7 @@ import {
   deleteBoard,
   listBoards,
   myListBoards,
+  setMAC,
   updateBoard
 } from './board.controller'
 
@@ -24,6 +25,8 @@ boardsRouter.post(
   identityVerificationMiddleware,
   addThingsToBoard
 )
+
+boardsRouter.post('/set-mac/:id', identityVerificationMiddleware, setMAC)
 
 boardsRouter.delete('/delete/:id', identityVerificationMiddleware, deleteBoard)
 
