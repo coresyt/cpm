@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <!-- Fondo oscuro -->
+  <rect width="200" height="200" rx="24" fill="#1A1A1A" />
+  
+  <!-- Icono central (Hexágono + Nube) -->
+  <g transform="translate(50, 50)" fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Hexágono (Chip) - Color Azul Oscuro Borde -->
+    <path d="M50 5 L86.6 25 L86.6 75 L50 95 L13.4 75 L13.4 25 Z" stroke="#2563EB"/>
+    
+    <!-- Nube interna y puntos de conexión - Color Azul Claro -->
+    <g stroke="#38BDF8">
+      <!-- Nodos de la nube -->
+      <circle cx="35" cy="45" r="6"/>
+      <circle cx="65" cy="45" r="6"/>
+      <circle cx="50" cy="60" r="6"/>
+      <!-- Líneas de conexión de la nube -->
+      <path d="M35 45 L50 60 L65 45"/>
+    </g>
+    
+    <!-- Flecha de flujo de datos (Ascendente) -->
+    <path d="M50 60 L50 20 L60 30 M50 20 L40 30" stroke="#38BDF8" stroke-width="4"/>
+  </g>
+  
+  <!-- Texto (Opcional, para cabeceras grandes) -->
+  <text x="100" y="160" font-family="Arial, sans-serif" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="bold">CPM</text>
+  <text x="100" y="180" font-family="Arial, sans-serif" font-size="9" fill="#9CA3AF" text-anchor="middle">Cloud Platform for Microcontrollers</text>
+</svg>
