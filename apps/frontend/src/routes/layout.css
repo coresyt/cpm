@@ -1,1 +1,32 @@
 @import 'tailwindcss';
+
+@theme {
+  --color-ayu-bg: rgb(15, 20, 25);       /* Fondo principal oscuro */
+  --color-ayu-panel: rgb(11, 14, 20);    /* Fondo secundario / barras laterales */
+  --color-ayu-line: rgb(31, 36, 48);     /* Bordes y líneas divisorias */
+  --color-ayu-muted: rgb(92, 103, 115);  /* Comentarios / texto secundario */
+  --color-ayu-fg: rgb(179, 177, 173);    /* Texto principal */
+  --color-ayu-accent: rgb(255, 180, 84); /* Acento principal (naranja claro) */
+  --color-ayu-orange: rgb(255, 143, 64); /* Naranja (keywords) */
+  --color-ayu-yellow: rgb(255, 238, 153);/* Amarillo (funciones / variables) */
+  --color-ayu-green: rgb(170, 217, 76);  /* Verde (strings) */
+  --color-ayu-cyan: rgb(57, 186, 230);   /* Cian (tipos / propiedades) */
+  --color-ayu-blue: rgb(115, 208, 255);  /* Azul (métodos) */
+  --color-ayu-purple: rgb(210, 166, 255);/* Morado / Magenta (operadores) */
+  --color-ayu-red: rgb(240, 113, 120)    /* Rojo (errores / eliminaciones) */
+}
+
+@layer base {
+  :root, html, body {
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  * {
+    box-sizing: border-box;
+ }
+
+  body {
+    background-color: theme(--color-ayu-bg);
+  }
+}
