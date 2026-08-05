@@ -149,8 +149,7 @@ dist
 
 .vercel
 
-db.sqlite
-db.sqlite3
+db.*
 
 private.pem
 public.pem
