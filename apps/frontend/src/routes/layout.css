@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import './fonts.css';
 
 @theme {
   --color-ayu-bg: rgb(15, 20, 25);       /* Fondo principal oscuro */
@@ -13,13 +14,13 @@
   --color-ayu-cyan: rgb(57, 186, 230);   /* Cian (tipos / propiedades) */
   --color-ayu-blue: rgb(115, 208, 255);  /* Azul (métodos) */
   --color-ayu-purple: rgb(210, 166, 255);/* Morado / Magenta (operadores) */
-  --color-ayu-red: rgb(240, 113, 120)    /* Rojo (errores / eliminaciones) */
+  --color-ayu-red: rgb(240, 113, 120);    /* Rojo (errores / eliminaciones) */
+  --font-sans: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 @layer base {
   :root, html, body {
-    height: 100vh;
-    overflow: hidden;
+    height: 100svh;
   }
   
   * {
