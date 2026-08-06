@@ -1,2 +1,16 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		const authSection = document.getElementById('auth');
+
+		if (authSection !== null) {
+			const token = localStorage.getItem('token');
+      
+			if (token === null || token.length < 0)
+        return location.assign('/signin')
+
+      location.assign('/')
+		}
+	});
+</script>

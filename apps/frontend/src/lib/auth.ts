@@ -122,11 +122,11 @@ export async function signUp(user: UserSignUp): Promise<[string, boolean] | fals
 	}
 }
 
-export async function signin(user: UserSignUp): Promise<string | false> {
+export async function signIn(user: UserSignIn): Promise<[string, boolean] | false> {
 	console.log({ user, userStringify: JSON.stringify(user) });
 
 	try {
-		const response = await fetch('http://localhost:3000/api/auth/signup', {
+		const response = await fetch('http://localhost:3000/api/auth/signin', {
 			method: 'POST',
 			headers: { 'content-type': 'application/json' },
 			body: JSON.stringify(user)
@@ -138,7 +138,9 @@ export async function signin(user: UserSignUp): Promise<string | false> {
 			return false;
 		}
 
-		return json.token;
+		if (json.message && json.status === 400 && response.status) return [json.message, false];
+
+		return [json.token, true];
 	} catch (error) {
 		console.error('Error during signup:', error);
 		return false;
