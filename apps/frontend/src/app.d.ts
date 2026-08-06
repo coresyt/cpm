@@ -1,6 +1,12 @@
 // See https://svelte.dev/docs/kit/types#app.d.ts
 // for information about these interfaces
 declare global {
+	interface LocalStorageSession {
+		token: string;
+		name?: string;
+		email: string;
+	}
+
 	namespace App {
 		// interface Error {}
 		// interface Locals {}
