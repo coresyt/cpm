@@ -2,15 +2,13 @@ import {
   Entity,
   Column,
   CreateDateColumn,
-  PrimaryGeneratedColumn,
-  OneToMany
+  PrimaryGeneratedColumn
 } from 'typeorm'
 import { IsEmail } from 'class-validator'
 
 export const enum UserRole {
   Admin = 'admin',
-  Setter = 'setter',
-  Viewer = 'viewer'
+  Setter = 'setter'
 }
 
 @Entity()
@@ -21,7 +19,7 @@ export class User {
   @Column({
     type: 'varchar',
     enum: UserRole,
-    default: UserRole.Viewer
+    default: UserRole.Setter
   })
   role: UserRole
 
