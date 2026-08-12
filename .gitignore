@@ -153,3 +153,6 @@ db.*
 
 private.pem
 public.pem
+
+**/*.cert
+**/*.key
